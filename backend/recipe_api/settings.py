@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',
     'corsheaders',
+    
+    # Local apps
+    'recipes',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+import os
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'recipes.authentication.EnvTokenAuthentication',
+    ],
+}
+
+ADMIN_API_KEY = os.environ.get('ADMIN_API_KEY', 'dev-secret-key-123')
