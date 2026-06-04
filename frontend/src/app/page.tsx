@@ -12,36 +12,29 @@ export default function Home() {
       id: "date-night",
       title: "Date Night Dinners",
       description:
-        "Intimate multi-course dining experiences tailored specifically to your taste profiles. Bring the refinement of London's finest gastropubs to the comfort of your home, featuring bespoke plating and personal service.",
+        "Intimate multi-course dining in the comfort of your home. Choose 3 or 4 courses specifically tailored to your liking.",
       image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "tasting-dinner",
-      title: "Tasting Dinner Parties",
-      description:
-        "A full culinary journey featuring five to seven courses of seasonally inspired Modern European creations. Perfect for celebrations, each dish is meticulously crafted using local, premium ingredients and designed to spark conversation.",
-      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "family-style",
       title: "Family-Style Meals",
       description:
-        "Refined comfort food served platters-style for sharing. Blending the relaxed atmosphere of a high-end brunch spot with rich European flavors, designed for warm gatherings and effortless hosting.",
+        "Take a load off by letting me cook for you and your family. Choose between kid-friendly classics, sharing plates or international food to try something new.",
       image: "https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "meal-prep",
-      title: "Elevated Meal-Prep",
+      title: "Weekly Meal-Prep",
       description:
-        "Gourmet mid-week dining prepared in advance. Enjoy chef-quality meals structured for your busy schedule, using premium storage methods to preserve taste, texture, and nutritional balance.",
+        "Elevated lunches or dinners prepared in advance to support your schedule. Choose between lunch boxes for your children, work prep to take a break from eating out or simple dinners to make your evenings ligther, these preps focus on nutritional balance and chef-quality meals ready in your fridge.",
       image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
     },
     {
-      id: "nutrition-focused",
-      title: "Nutrition-Focused & Dietary Oriented",
+      id: "tasting-dinner",
+      title: "Dinner Parties",
       description:
-        "High-end culinary creations designed around specific dietary requirements, allergies, or fitness objectives. No compromises on flavor—just clean, wholesome ingredients prepared with culinary precision.",
-      image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80",
+        "In the mood to host? I offer elevated multi-course tasting menus or sharing-platter style dinner parties. Fancy some light snacks for your cocktail party? No problem. Parties are designed to your ideal expectations. (These require min. 2x chefs)",
+      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -188,21 +181,19 @@ export default function Home() {
           <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-20 bg-stone-50/90 backdrop-blur border border-stone-200 rounded-full p-1 shadow-sm flex items-center gap-1">
             <button
               onClick={() => setHeroVersion("split")}
-              className={`text-[9px] tracking-wider uppercase font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                heroVersion === "split"
-                  ? "bg-stone-900 text-white"
-                  : "text-stone-500 hover:text-stone-900"
-              }`}
+              className={`text-[9px] tracking-wider uppercase font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 ${heroVersion === "split"
+                ? "bg-stone-900 text-white"
+                : "text-stone-500 hover:text-stone-900"
+                }`}
             >
               Split View
             </button>
             <button
               onClick={() => setHeroVersion("centered")}
-              className={`text-[9px] tracking-wider uppercase font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                heroVersion === "centered"
-                  ? "bg-stone-900 text-white"
-                  : "text-stone-500 hover:text-stone-900"
-              }`}
+              className={`text-[9px] tracking-wider uppercase font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 ${heroVersion === "centered"
+                ? "bg-stone-900 text-white"
+                : "text-stone-500 hover:text-stone-900"
+                }`}
             >
               Centered View
             </button>
@@ -312,17 +303,17 @@ export default function Home() {
         <section id="about" className="py-24 sm:py-32 bg-stone-50 border-t border-stone-200/50">
           <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
             <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
-              The Chef's Journey
+              About Me
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900">
               Theresa Oemmelen
             </h2>
             <div className="w-12 h-[1px] bg-accent mx-auto" />
-            <p className="font-serif italic text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mx-auto">
+            {/* <p className="font-serif italic text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mx-auto">
               "Fine dining isn't just about complexity; it's about showcasing natural ingredients in their absolute peak season, executed with clean European technique."
-            </p>
+            </p> */}
             <p className="text-stone-500 font-sans text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-              Having refined her craft in two of London’s top 50 gastropubs under Michelin-starred head chefs, Theresa brings a balanced touch to modern private dining. Equally comfortable designing high-end multi-course tasting menus or setting up casual, vibrant brunch-y spaces, she is dedicated to creating memorable culinary events tailored perfectly to her hosts.
+              Hi there! I'm Theresa, a professional chef, who would love to bring my culinary expertise to the comfort of your home. Having worked in two of the UK's top 50 gastropubs under Michelin-starred head-chefs, I aim to combine elevated dinners with a personal touch. I focus on balancing high-end menus with expceptional quality produce, that is seasonal and local wherever possible. Dedicated to creating memorable events for you, I design menus tailored to any requests you have. I'm excited to work with you and turn your next event into a culinary feast!
             </p>
           </div>
         </section>
@@ -331,15 +322,15 @@ export default function Home() {
         <section id="services" className="py-24 sm:py-32 bg-stone-100/50 border-t border-stone-200/50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-xl mx-auto mb-20 space-y-4">
-              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
-                Our Services
-              </span>
+              {/* <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
+                My Services
+              </span> */}
               <h2 className="font-serif text-3xl sm:text-4xl text-stone-900">
-                Bespoke Culinary Services
+                My Services
               </h2>
-              <p className="text-stone-500 text-sm">
+              {/* <p className="text-stone-500 text-sm">
                 Curating fine dining events, custom meal prep, and nutrition-focused programs.
-              </p>
+              </p> */}
             </div>
 
             <div className="space-y-24">
@@ -352,9 +343,8 @@ export default function Home() {
                   >
                     {/* Image block */}
                     <div
-                      className={`lg:col-span-6 w-full ${
-                        isEven ? "lg:order-1" : "lg:order-2"
-                      }`}
+                      className={`lg:col-span-6 w-full ${isEven ? "lg:order-1" : "lg:order-2"
+                        }`}
                     >
                       <div className="relative aspect-[3/2] w-full bg-stone-200 overflow-hidden shadow-lg border border-stone-200">
                         <img
@@ -367,9 +357,8 @@ export default function Home() {
 
                     {/* Content block */}
                     <div
-                      className={`lg:col-span-6 space-y-4 ${
-                        isEven ? "lg:order-2" : "lg:order-1"
-                      }`}
+                      className={`lg:col-span-6 space-y-4 ${isEven ? "lg:order-2" : "lg:order-1"
+                        }`}
                     >
                       <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-accent">
                         0{index + 1} / Service
