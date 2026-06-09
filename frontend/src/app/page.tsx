@@ -41,19 +41,23 @@ export default function Home() {
   const sampleMenus = [
     {
       id: "tasting",
-      title: "Signature Tasting Menu",
-      description: "A 5-course journey showcasing local British ingredients with French technique.",
+      title: "Date Night Menu",
       sections: [
         {
-          courseName: "To Begin",
+          courseName: "Starter",
           items: [
             {
-              name: "Seared Scallops",
-              description: "Wild garlic purée, pickled heritage radish, hazelnut crumb.",
+              name: "Charred Mackerel",
+              description: "with Salmorejo, Fennel, Nasturtium",
             },
+          ],
+        },
+        {
+          courseName: "Interim",
+          items: [
             {
-              name: "Cured Sea Trout",
-              description: "Fermented cucumber, dill emulsion, crisp rye sourdough.",
+              name: "Courgette Flower Ravioli",
+              description: "with Creamy Asparagus, Spring Veg, Mint",
             },
           ],
         },
@@ -61,12 +65,8 @@ export default function Home() {
           courseName: "Mains",
           items: [
             {
-              name: "Roasted Duck Breast",
-              description: "Glazed heritage carrots, cherry gastrique, toasted buckwheat.",
-            },
-            {
-              name: "Pan-fried Halibut",
-              description: "Broad beans, sea herbs, lemon verbena butter sauce.",
+              name: "Cornish Cod",
+              description: "with Ratatouille, Datterini Sauce, Pomme Anna",
             },
           ],
         },
@@ -74,8 +74,8 @@ export default function Home() {
           courseName: "Dessert",
           items: [
             {
-              name: "Meadowsweet Tart",
-              description: "English strawberries, elderflower jelly, vanilla shortcrust.",
+              name: "Blueberry Custard Tart",
+              description: "with Toasted Italian Meringue",
             },
           ],
         },
@@ -83,41 +83,66 @@ export default function Home() {
     },
     {
       id: "bistro",
-      title: "Bespoke Gastropub Bistro Menu",
-      description: "Rich, comforting modern European classics, executed to perfection.",
+      title: "Family Style Options",
       sections: [
         {
-          courseName: "Starters",
+          courseName: "Pizza Selection",
           items: [
             {
-              name: "Heritage Beetroot & Burrata",
-              description: "Roasted walnuts, honeyed sherry dressing, watercress.",
+              name: "Hot Honey Pepperoni",
             },
             {
-              name: "Crisp Pork Belly",
-              description: "Spiced apple purée, celeriac slaw, mustard oil.",
+              name: "Classic Margherita & Burrata",
+            },
+            {
+              name: "Mortadella, Pistachio & Wild Garlic",
+            },
+            {
+              name: "Rosemary Potatoes & Blue Cheese Beschamel",
             },
           ],
         },
         {
-          courseName: "Mains",
+          courseName: "East Asian Sharing Platters",
           items: [
             {
-              name: "Salt-Aged Beef Ribeye",
-              description: "Triple-cooked chips, charred shallot, bone marrow jus.",
+              name: "Chilli Butter Salmon",
             },
             {
-              name: "Wild Mushroom Gnocchi",
-              description: "Truffle butter sauce, aged parmesan, fresh winter truffle shavings.",
+              name: "Sweet Chilli Wantons & Pak Choi",
+            },
+            {
+              name: "Smashed Cucumber Salad",
+            },
+            {
+              name: "Kimchi Fried Rice",
+            },
+            {
+              name: "Mango & Mint Mochi",
             },
           ],
         },
         {
-          courseName: "Desserts",
+          courseName: "Sunday Roast",
           items: [
             {
-              name: "Warm Chocolate Fondant",
-              description: "Salted caramel core, clotted cream ice cream.",
+              name: "Roast Beef / Chicken",
+            },
+            {
+              name: "Vegetarian Wellington",
+              description: "optional",
+            },
+            {
+              name: "Yorkshire Puddings",
+            },
+            {
+              name: "Seasonal Greens",
+            },
+            {
+              name: "Roast Potatoes",
+            },
+            {
+              name: "Sticky Toffee Pudding / Summer Trifle",
             },
           ],
         },
@@ -125,41 +150,21 @@ export default function Home() {
     },
     {
       id: "brunch",
-      title: "Sophisticated Cafe Brunch Menu",
-      description: "Vibrant, casual, and ingredient-led brunch classics.",
+      title: "Meal Prep Ideas",
       sections: [
         {
-          courseName: "Savory Classics",
           items: [
             {
-              name: "Smashed Avocado & Poached Eggs",
-              description: "Sourdough toast, fermented chilli salsa, toasted seeds, micro coriander.",
+              name: "Gochujang Noodle Bowl",
+              description: "with Sticky Pork / Tofu, Fried Greens, Pickled Red Onion",
             },
             {
-              name: "Baked Shakshuka",
-              description: "Spiced tomato and bell pepper ragout, soft goat's cheese, coriander, flatbread.",
-            },
-          ],
-        },
-        {
-          courseName: "Sweet & Light",
-          items: [
-            {
-              name: "Brioche French Toast",
-              description: "Whipped mascarpone, warm seasonal berry compote, pistachios.",
+              name: "Creamy Green Orzotto",
+              description: "with Herb & Butter Chicken / Shaved Courgette Salad, Feta",
             },
             {
-              name: "House Granola Bowl",
-              description: "Greek yogurt, wild flower honey, fresh berries, toasted coconut chips.",
-            },
-          ],
-        },
-        {
-          courseName: "Libations",
-          items: [
-            {
-              name: "Cold-Pressed Green Juice",
-              description: "Spinach, cucumber, apple, ginger, lemon.",
+              name: "Beef & Mushroom Stroganoff",
+              description: "with Wild Rice, Gremolata",
             },
           ],
         },
@@ -205,9 +210,6 @@ export default function Home() {
             <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto transition-all duration-500">
               {/* Hero text */}
               <div className="lg:col-span-5 space-y-6 text-left order-2 lg:order-1">
-                <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
-                  Private Chef & Culinary Consultant
-                </span>
                 <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.1] text-stone-900">
                   Crafting food <br />
                   <span className="font-serif italic text-accent">with pedigree.</span>
@@ -312,8 +314,12 @@ export default function Home() {
             {/* <p className="font-serif italic text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mx-auto">
               "Fine dining isn't just about complexity; it's about showcasing natural ingredients in their absolute peak season, executed with clean European technique."
             </p> */}
-            <p className="text-stone-500 font-sans text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-              Hi there! I'm Theresa, a professional chef, who would love to bring my culinary expertise to the comfort of your home. Having worked in two of the UK's top 50 gastropubs under Michelin-starred head-chefs, I aim to combine elevated dinners with a personal touch. I focus on balancing high-end menus with expceptional quality produce, that is seasonal and local wherever possible. Dedicated to creating memorable events for you, I design menus tailored to any requests you have. I'm excited to work with you and turn your next event into a culinary feast!
+            <p className="text-stone-500 font-sans text-sm sm:text-base max-w-3xl mx-auto">
+              Hi there! I'm Theresa, a professional chef who loves bringing restaurant-quality food into the comfort of people's homes. <br /><br />
+              Over the years, I've had the opportunity to work across a wide range of culinary settings, from bakeryies and bespoke celebration cakes to gastropubs and high-end tasiting dinners. Most recently, I worked in two of the UK's Top 50 Gastropubs under Michelin-starred chefs, where I developed a passion for combining exceptional ingredients with thoughtful, flavour-driven cooking. <br /><br />
+              My approach is rooted in seasonality, quality produce, and food made from scratcch. Whether I'm preparing an intimate date night dinner, catering a special celebration, creating a family-style feast, or simply helping busy households enjoy delicious home-cooked meals, I tailor every menu to the occasion and the people acround the table. <br /><br />
+              For me, great food is about more than technique - it's about creating memorable experience. My goal is to take the stress out of hosting, allowing you to relax and enjoy the moment while I take care of the cooking. <br /><br />
+              Whatever the occasion, I'd love to help create something truly special for you and your guests.
             </p>
           </div>
         </section>
@@ -325,9 +331,10 @@ export default function Home() {
               {/* <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
                 My Services
               </span> */}
-              <h2 className="font-serif text-3xl sm:text-4xl text-stone-900">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900">
                 My Services
               </h2>
+              <div className="w-12 h-[1px] bg-accent mx-auto" />
               {/* <p className="text-stone-500 text-sm">
                 Curating fine dining events, custom meal prep, and nutrition-focused programs.
               </p> */}
@@ -381,12 +388,10 @@ export default function Home() {
         <section id="menus" className="py-24 sm:py-32 bg-stone-50 border-t border-stone-200/50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-xl mx-auto mb-20 space-y-4">
-              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
-                Curated Options
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-stone-900">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900">
                 Sample Menus
               </h2>
+              <div className="w-12 h-[1px] bg-accent mx-auto" />
               <p className="text-stone-500 text-sm">
                 Click on each menu to view detailed dishes, seasonal elements, and courses.
               </p>

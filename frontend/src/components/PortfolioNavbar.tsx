@@ -16,11 +16,10 @@ export default function PortfolioNavbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50 py-4 shadow-sm"
           : "bg-transparent py-6"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
         {/* Brand logo */}
@@ -29,7 +28,7 @@ export default function PortfolioNavbar() {
             Theresa Oemmelen
           </span>
           <span className="text-[10px] tracking-[0.2em] uppercase text-stone-500 font-sans mt-0.5">
-            Modern European Cuisine
+            Private Chef
           </span>
         </a>
 

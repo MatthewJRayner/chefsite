@@ -51,11 +51,10 @@ export default function MenuAccordion({ menus }: MenuAccordionProps) {
                   {menu.description}
                 </p>
               </div>
-              <div className="ml-4 flex items-center justify-center w-8 h-8 rounded-full border border-stone-200 group-hover:border-stone-400 transition-colors duration-300">
+              <div className="ml-4 flex items-center justify-center w-8 h-8 rounded-full border border-stone-200 group-hover:border-stone-400 transition-colors duration-300 group-active:scale-90">
                 <span
-                  className={`text-xl text-stone-600 transition-transform duration-300 transform ${
-                    isOpen ? "rotate-45" : "rotate-0"
-                  }`}
+                  className={`text-xl text-stone-600 transition-transform duration-300 transform ${isOpen ? "rotate-45" : "rotate-0"
+                    }`}
                 >
                   +
                 </span>
@@ -64,11 +63,10 @@ export default function MenuAccordion({ menus }: MenuAccordionProps) {
 
             {/* Accordion Content */}
             <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isOpen ? "max-h-[1000px] opacity-100 mt-6" : "max-h-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100 mt-6" : "max-h-0 opacity-0"
+                }`}
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
+              <div className="grid grid-cols-1 gap-8 text-center pb-6">
                 {menu.sections.map((section, idx) => (
                   <div key={idx} className="space-y-6">
                     <h4 className="text-[10px] tracking-[0.25em] uppercase font-semibold text-accent border-b border-stone-100 pb-2">
