@@ -42,6 +42,7 @@ export default function Home() {
     {
       id: "tasting",
       title: "Date Night Menu",
+      description: "",
       sections: [
         {
           courseName: "Starter",
@@ -84,6 +85,7 @@ export default function Home() {
     {
       id: "bistro",
       title: "Family Style Options",
+      description: "",
       sections: [
         {
           courseName: "Pizza Selection",
@@ -151,8 +153,10 @@ export default function Home() {
     {
       id: "brunch",
       title: "Meal Prep Ideas",
+      description: "",
       sections: [
         {
+          courseName: "Brunch",
           items: [
             {
               name: "Gochujang Noodle Bowl",

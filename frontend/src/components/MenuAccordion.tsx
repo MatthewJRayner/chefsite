@@ -4,7 +4,7 @@ import { useState } from "react";
 
 interface MenuItem {
   name: string;
-  description: string;
+  description?: string;
 }
 
 interface MenuSection {
@@ -79,7 +79,7 @@ export default function MenuAccordion({ menus }: MenuAccordionProps) {
                             {item.name}
                           </h5>
                           <p className="text-xs text-stone-500 font-sans leading-relaxed mt-1">
-                            {item.description}
+                            {item.description ?? ""}
                           </p>
                         </div>
                       ))}
