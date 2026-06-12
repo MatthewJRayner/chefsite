@@ -53,6 +53,12 @@ export default function PortfolioNavbar() {
             Sample Menus
           </a>
           <a
+            href="#gallery"
+            className="text-xs uppercase tracking-widest text-stone-600 hover:text-stone-900 font-medium transition-colors"
+          >
+            Gallery
+          </a>
+          <a
             href="#contact"
             className="text-xs uppercase tracking-widest text-stone-600 hover:text-stone-900 font-medium transition-colors"
           >

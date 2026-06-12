@@ -4,8 +4,91 @@ import { useState } from "react";
 import PortfolioNavbar from "@/components/PortfolioNavbar";
 import MenuAccordion from "@/components/MenuAccordion";
 
+function ServiceCarousel({ images, title }: { images: string[]; title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="relative aspect-[3/2] w-full bg-stone-200 overflow-hidden shadow-lg border border-stone-200 group">
+      {/* Images container */}
+      <div className="relative w-full h-full">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              idx === currentIndex ? "opacity-100 z-10 animate-fade-in" : "opacity-0 z-0"
+            }`}
+          >
+            <img
+              src={img}
+              alt={`${title} - view ${idx + 1}`}
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prevSlide}
+            type="button"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
+            aria-label="Previous image"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            type="button"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
+            aria-label="Next image"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </>
+      )}
+
+      {/* Indicators/Dots */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 bg-stone-900/40 px-3 py-1.5 rounded-full backdrop-blur-xs">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex(idx);
+              }}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                idx === currentIndex ? "bg-white w-3" : "bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const [heroVersion, setHeroVersion] = useState<"split" | "centered">("split");
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   const services = [
     {
@@ -13,28 +96,79 @@ export default function Home() {
       title: "Date Night Dinners",
       description:
         "Intimate multi-course dining in the comfort of your home. Choose 3 or 4 courses specifically tailored to your liking.",
-      image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+      ],
     },
     {
       id: "family-style",
       title: "Family-Style Meals",
       description:
         "Take a load off by letting me cook for you and your family. Choose between kid-friendly classics, sharing plates or international food to try something new.",
-      image: "https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=800&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80",
+      ],
     },
     {
       id: "meal-prep",
       title: "Weekly Meal-Prep",
       description:
         "Elevated lunches or dinners prepared in advance to support your schedule. Choose between lunch boxes for your children, work prep to take a break from eating out or simple dinners to make your evenings ligther, these preps focus on nutritional balance and chef-quality meals ready in your fridge.",
-      image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=800&q=80",
+      ],
     },
     {
       id: "tasting-dinner",
       title: "Dinner Parties",
       description:
         "In the mood to host? I offer elevated multi-course tasting menus or sharing-platter style dinner parties. Fancy some light snacks for your cocktail party? No problem. Parties are designed to your ideal expectations. (These require min. 2x chefs)",
-      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=800&q=80",
+      ],
+    },
+  ];
+
+  const galleryImages = [
+    {
+      src: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=800&q=80",
+      alt: "Artisanal Sourdough & Crusty Breads",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=800&q=80",
+      alt: "Bespoke Celebratory Floral Cake",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1532636875304-0c8fe119ff91?auto=format&fit=crop&w=800&q=80",
+      alt: "Pan-Seared Scallops with Herb Oil",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1553618551-fba689030290?auto=format&fit=crop&w=800&q=80",
+      alt: "Fresh Rock Oysters on Ice with Mignonette",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80",
+      alt: "Warm Chocolate Fondant with Gastropub Garnish",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
+      alt: "Hand-Crafted Tagliatelle Pasta Prep",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+      alt: "Roasted Seasonal Beetroot & Goat Cheese Salad",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=800&q=80",
+      alt: "Seared Venison Loin, Parsnip Purée, Jus",
     },
   ];
 
@@ -357,13 +491,7 @@ export default function Home() {
                       className={`lg:col-span-6 w-full ${isEven ? "lg:order-1" : "lg:order-2"
                         }`}
                     >
-                      <div className="relative aspect-[3/2] w-full bg-stone-200 overflow-hidden shadow-lg border border-stone-200">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="object-cover w-full h-full hover:scale-105 transition-transform duration-700 ease-out"
-                        />
-                      </div>
+                      <ServiceCarousel images={service.images} title={service.title} />
                     </div>
 
                     {/* Content block */}
@@ -490,6 +618,81 @@ export default function Home() {
               </div>
             </form>
           </div>
+        </section>
+
+        {/* GALLERY SECTION */}
+        <section id="gallery" className="py-24 sm:py-32 bg-stone-50 border-t border-stone-200/50">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-xl mx-auto mb-16 space-y-4">
+              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-accent">
+                Visual Showcase
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900">
+                Culinary Gallery
+              </h2>
+              <div className="w-12 h-[1px] bg-accent mx-auto" />
+              <p className="text-stone-500 text-sm">
+                A selection of bespoke creations, plating designs, and fresh prep from my kitchen.
+              </p>
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {galleryImages.map((image, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setSelectedImage(image)}
+                  className="relative aspect-square bg-stone-200 overflow-hidden cursor-pointer group shadow-xs border border-stone-200/60 text-left p-0 w-full"
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-stone-950/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-xs uppercase tracking-widest text-white border border-white/50 px-4 py-2 backdrop-blur-xs">
+                      View Plate
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Lightbox Modal */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 z-50 bg-stone-950/90 flex items-center justify-center p-4 backdrop-blur-md transition-all duration-300"
+              onClick={() => setSelectedImage(null)}
+            >
+              <button
+                className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors cursor-pointer"
+                onClick={() => setSelectedImage(null)}
+                aria-label="Close lightbox"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              <div
+                className="relative max-w-5xl max-h-[85vh] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="object-contain max-w-full max-h-[85vh] mx-auto shadow-2xl border border-stone-800"
+                />
+                {selectedImage.alt && (
+                  <div className="absolute bottom-0 inset-x-0 bg-stone-950/70 text-white/90 text-center py-3 text-xs uppercase tracking-wider font-medium backdrop-blur-xs">
+                    {selectedImage.alt}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </section>
       </main>
 
