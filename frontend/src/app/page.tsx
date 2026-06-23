@@ -18,15 +18,14 @@ function ServiceCarousel({ images, title }: { images: string[]; title: string })
   };
 
   return (
-    <div className="relative aspect-[3/2] w-full bg-stone-200 overflow-hidden shadow-lg border border-stone-200 group">
+    <div className="relative aspect-[3/2] w-full rounded-lg bg-stone-200 overflow-hidden shadow-lg border border-stone-200 group">
       {/* Images container */}
       <div className="relative w-full h-full">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              idx === currentIndex ? "opacity-100 z-10 animate-fade-in" : "opacity-0 z-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === currentIndex ? "opacity-100 z-10 animate-fade-in" : "opacity-0 z-0"
+              }`}
           >
             <img
               src={img}
@@ -43,7 +42,7 @@ function ServiceCarousel({ images, title }: { images: string[]; title: string })
           <button
             onClick={prevSlide}
             type="button"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
             aria-label="Previous image"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
@@ -53,7 +52,7 @@ function ServiceCarousel({ images, title }: { images: string[]; title: string })
           <button
             onClick={nextSlide}
             type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-stone-900/60 hover:bg-stone-900/90 hover:scale-105 text-white p-2.5 rounded-full transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer shadow-md backdrop-blur-xs"
             aria-label="Next image"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
@@ -74,9 +73,8 @@ function ServiceCarousel({ images, title }: { images: string[]; title: string })
                 e.stopPropagation();
                 setCurrentIndex(idx);
               }}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? "bg-white w-3" : "bg-white/50 hover:bg-white/80"
-              }`}
+              className={`cursor-pointer w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "bg-white w-3" : "bg-white/50 hover:bg-white/80"
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
@@ -108,9 +106,10 @@ export default function Home() {
       description:
         "Take a load off by letting me cook for you and your family. Choose between kid-friendly classics, sharing plates or international food to try something new.",
       images: [
-        "https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80",
+        "assets/images/pizza_1.jpg",
+        "assets/images/pizza_4.jpg",
+        "assets/images/pizza_2.jpg",
+        "assets/images/pizza_3.jpg",
       ],
     },
     {
@@ -119,9 +118,9 @@ export default function Home() {
       description:
         "Elevated lunches or dinners prepared in advance to support your schedule. Choose between lunch boxes for your children, work prep to take a break from eating out or simple dinners to make your evenings ligther, these preps focus on nutritional balance and chef-quality meals ready in your fridge.",
       images: [
-        "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=800&q=80",
+        "assets/images/meal-prep_1.jpg",
+        "assets/images/stroganoff_1.jpg",
+        "assets/images/chicken_2.jpg",
       ],
     },
     {
@@ -347,10 +346,10 @@ export default function Home() {
             /* Layout A: Split Layout */
             <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto transition-all duration-500">
               {/* Hero text */}
-              <div className="lg:col-span-5 space-y-6 text-left order-2 lg:order-1">
+              <div className="lg:col-span-5 space-y-3 text-left order-2 lg:order-1">
                 <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.1] text-stone-900">
-                  Crafting food <br />
-                  <span className="font-serif italic text-accent">with pedigree.</span>
+                  Quality food <br />
+                  <span className="font-serif italic text-accent text-3xl sm:text-4xl lg:text-5xl">in the comfort of your home.</span>
                 </h1>
                 <p className="text-stone-500 font-sans text-sm sm:text-base leading-relaxed max-w-md">
                   Beautifully plated Modern European dishes, bringing Michelin-starred expertise and seasonal gastropub refinement directly to your table.
@@ -373,11 +372,11 @@ export default function Home() {
 
               {/* Hero Image */}
               <div className="lg:col-span-7 order-1 lg:order-2">
-                <div className="relative aspect-[4/3] w-full bg-stone-200 overflow-hidden shadow-2xl">
+                <div className="relative aspect-[4/3] w-full bg-stone-200 overflow-hidden shadow-2xl rounded-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80"
+                    src="assets/images/main.jpg"
                     alt="Modern European Fine Plating"
-                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105"
                   />
                 </div>
               </div>
